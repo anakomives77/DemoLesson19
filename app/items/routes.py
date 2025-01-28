@@ -34,13 +34,3 @@ def events_list_display():
     ]
 
     return render_template("events_list.html",  events=list_of_events)
-
-@items.route('/event')
-def event_display():
-    events = {
-    "name": "intalnire de afaceri",
-    "date": "2025-01-30",
-    "time": "10:00",
-    "description": "in Bucuresti, biroul principal"}
-
-    return render_template("one_event.html", events=events)
