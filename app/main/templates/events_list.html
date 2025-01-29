@@ -6,7 +6,12 @@
 </head>
 <body>
     <h1>Events</h1>
+     <a href="{{ url_for('items.items_offering') }}"> <!--link to the function items_offering located in items-->
+        Show Items Page
+    </a>
+
     {% for event in events %}
+<!--rethink page using bootstraps-->
     <ul>
         <li><strong>Name:</strong> {{ event.name }}</li>
         <li><strong>Date:</strong> {{ event.date }}</li>
