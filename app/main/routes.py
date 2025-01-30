@@ -1,19 +1,24 @@
 from app.main import main
-from flask import render_template
+from flask import render_template, request
 
-"""
-@main.route('/')
-def home():
-   return "Salutare tuturor!"
-"""
 
-@main.route('/')
-def main_page():
-    return render_template("main_view.html")
+@main.route('/assignment')
+def show_assignment():
+    return render_template("assignment.html")
 
-@main.route('/add_event')
+@main.route('/add_event',methods=['GET', 'POST'])
 def add_event():
-    return render_template("add_event.html")
+
+    message = ""
+    if request.method == 'POST':
+        # Process form data
+        name = request.form.get('name')
+        date = request.form.get('date')
+        time = request.form.get('time')
+        description = request.form.get('description')
+        message = f"A new {name}, was added on  {date} at {time}."
+
+    return render_template('add_event.html', message=message)
 
 
 @main.route('/delete_event')
@@ -21,13 +26,8 @@ def delete_event():
     return render_template("delete_event.html")
 
 
-@main.route('/show_event')
-def show_event():
-    return render_template("show_event.html")
-
-
-@main.route('/events')
-def events_list_display():
+@main.route('/')
+def show_events():
     list_of_events = [
         {
             "name": "cina cu Elena",
@@ -49,4 +49,4 @@ def events_list_display():
     }
     ]
 
-    return render_template("events_list.html",  events=list_of_events)
+    return render_template("main_view.html",  events=list_of_events)

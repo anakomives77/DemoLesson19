@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}add_event{% endblock %}
+{% block title %}Add Event{% endblock %}
 
 
 {% block header %}
@@ -11,8 +11,8 @@
 {% block sidebar %}
     <ul>
         <li>
-            <a href="{{ url_for('main.main_page') }}">
-                <strong>Main Page</strong>
+            <a href="{{ url_for('main.show_events') }}">
+                <strong>Home</strong>
             </a>
         </li>
     </ul>
@@ -21,7 +21,29 @@
 
 
 {% block content %}
-    <h1>Here add content for the Add Event</h1>
+    <h1>Please add your event</h1>
+
+    <form method="POST">
+        <label for="name"><strong>Name:</strong></label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="date"><strong>Date:</strong></label><br>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time"><strong>Time:</strong></label><br>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <label for="description"><strong>Description:</strong></label><br>
+        <input type="description" id="description" name="description" ><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
 {% endblock %}
+
+{% block footer %}
+            <p><strong> <a href="{{ url_for('main.show_assignment') }}">IT School<strong></p>
+{% endblock %}
+
 
 

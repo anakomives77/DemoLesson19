@@ -1,47 +1,48 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home Page{% endblock %}
 
 
 {% block header %}
-            <h1>Your first Event Planner</h1>
+            <h1>Events View</h1>
 {% endblock %}
 
 
 {% block sidebar %}
     <ul>
+
         <li>
-            <a href="{{ url_for('main.add_event') }}">
+            <a href="{{ url_for('main.add_event') }}"><br>
                 <strong>Add Event</strong>
             </a>
         </li>
-              <li>
-            <a href="{{ url_for('main.delete_event') }}">
+
+        <li>
+            <a href="{{ url_for('main.delete_event') }}"><br>
                 <strong>Delete Event</strong>
             </a>
         </li>
-              <li>
-            <a href="{{ url_for('main.show_event') }}">
-                <strong>Show Event</strong>
-            </a>
-        </li>
-              <li>
-            <a href="{{ url_for('main.events_list_display') }}">
-                <strong>Events List</strong>
-            </a>
-        </li>
+
+
     </ul>
 {% endblock %}
 
 
 
 {% block content %}
-    <picture>
-  <source media="(min-width: 250px)" srcset="static/EventPlanner.png">
-  <img src="{{ url_for('static', filename='EventPlanner.png') }}"
-       alt="Event Planner"
-       style="max-width: 100%; height: auto; display: block; margin: auto;">
-</picture>
+    {% for event in events %}
+<!--rethink page using bootstraps-->
+    <ul>
+        <li><strong>Name:</strong> {{ event.name }}</li>
+        <li><strong>Date:</strong> {{ event.date }}</li>
+        <li><strong>Time:</strong> {{ event.time }}</li>
+        <li><strong>Description:</strong> {{ event.description }}</li>
+    </ul>
+    {% endfor %}
+
 {% endblock %}
 
+{% block footer %}
+            <p><strong> <a href="{{ url_for('main.show_assignment') }}">IT School<strong></p>
+{% endblock %}
 

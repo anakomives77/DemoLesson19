@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}delete_event{% endblock %}
+{% block title %}Delete Event{% endblock %}
 
 
 {% block header %}
@@ -11,8 +11,8 @@
 {% block sidebar %}
     <ul>
         <li>
-            <a href="{{ url_for('main.main_page') }}">
-                <strong>Main Page</strong>
+            <a href="{{ url_for('main.show_events') }}">
+                <strong>Home</strong>
             </a>
         </li>
     </ul>
@@ -23,5 +23,10 @@
 {% block content %}
     <h1>Here add content for the Delete Event</h1>
 {% endblock %}
+
+{% block footer %}
+            <p><strong> <a href="{{ url_for('main.show_assignment') }}">IT School<strong></p>
+{% endblock %}
+
 
 
