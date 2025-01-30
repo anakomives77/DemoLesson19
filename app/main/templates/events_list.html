@@ -1,15 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Events List</title>
-</head>
-<body>
-    <h1>Events</h1>
-     <a href="{{ url_for('items.items_offering') }}"> <!--link to the function items_offering located in items-->
-        Show Items Page
-    </a>
+{% extends "base.html" %}
 
+{% block title %}events_list{% endblock %}
+
+
+{% block header %}
+            <h1>Events List</h1>
+{% endblock %}
+
+
+{% block sidebar %}
+    <ul>
+        <li>
+            <a href="{{ url_for('main.main_page') }}">
+                <strong>Main Page</strong>
+            </a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
     {% for event in events %}
 <!--rethink page using bootstraps-->
     <ul>
@@ -19,5 +30,6 @@
         <li><strong>Description:</strong> {{ event.description }}</li>
     </ul>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
+
+
